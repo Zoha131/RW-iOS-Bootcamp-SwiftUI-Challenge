@@ -23,7 +23,6 @@ struct PostView: View {
                     .frame(width: 50, height: 50)
                 VStack(alignment: .leading) {
                     Text("\(post.userName)")
-                    //temp untill I figure out how to format it properly
                     Text("\(post.getFormatedDate())")
                 }
                 Spacer()
