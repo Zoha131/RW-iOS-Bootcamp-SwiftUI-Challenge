@@ -23,6 +23,7 @@ struct NewPostView: View {
     VStack {
       Text("New Post")
         .font(.headline)
+        .padding(.top, 20)
       Form {
         TextField("Username", text: $username)
         Button("Pick image") {

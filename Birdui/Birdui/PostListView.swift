@@ -9,33 +9,44 @@
 import SwiftUI
 
 struct PostListView: View {
-    
-    @ObservedObject var postVM = PostViewModel()
-    
-    var body: some View {
-        // TODO: This should look exactly like the Birdie table view,
-        // but with only one button.
-        NavigationView {
-            List {
-                ForEach(postVM.posts) { post in
-                    PostView(post: post)
-                }
-            }
-            .navigationBarTitle("Home")
-            .navigationBarItems(leading:
-                Button(action: {
-                    self.postVM.addPost(post: MediaPost(textBody: "I am going to post the chop picture again!!!", userName: "Emilio", timestamp: Date(timeIntervalSinceNow: 0), uiImage: UIImage(named: "chop")))
-                }, label: {
-                    Text("Add New Post")
-                })
-            )
-        }
+  
+  @ObservedObject var postVM = PostViewModel()
+  
+  @State var showNewPost = false
+  
+  var body: some View {
+    // TODO: This should look exactly like the Birdie table view,
+    // but with only one button.
+    NavigationView {
+      VStack(alignment: .leading){
         
+        // Button to add new post
+        Button(
+          action: { self.showNewPost = true },
+          label: { Text("Add New Post") }
+        ).padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 0))
+        
+        // List View starts here
+        List {
+          ForEach(postVM.posts) { post in
+            PostView(post: post)
+          }
+        }
+        .navigationBarTitle(Text("Home"), displayMode: .inline)
+        .navigationBarItems(
+          leading: Image("mascot_swift-badge")
+            .resizable()
+            .frame(width: 50, height: 50)
+        )
+      }
+    }.sheet(isPresented: $showNewPost) {
+      NewPostView(postHandler: self.postVM)
     }
+  }
 }
 
 struct PostListView_Previews: PreviewProvider {
-    static var previews: some View {
-        PostListView()
-    }
+  static var previews: some View {
+    PostListView()
+  }
 }
