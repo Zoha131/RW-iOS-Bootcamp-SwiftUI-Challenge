@@ -17,14 +17,11 @@ struct PostListView: View {
   var body: some View {
     // TODO: This should look exactly like the Birdie table view,
     // but with only one button.
+    
+    
     NavigationView {
-      VStack(alignment: .leading){
-        
-        // Button to add new post
-        Button(
-          action: { self.showNewPost = true },
-          label: { Text("Add New Post") }
-        ).padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 0))
+      
+      ZStack(alignment: .leading){
         
         // List View starts here
         List {
@@ -37,9 +34,18 @@ struct PostListView: View {
           leading: Image("mascot_swift-badge")
             .resizable()
             .frame(width: 50, height: 50)
+            .padding(.bottom,5)
         )
+        
+        // Button to add new post
+//        Button(
+//          action: { self.showNewPost = true },
+//          label: { Text("Add New Post") }
+//        ).padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 0))
+        AddButtonView()
       }
-    }.sheet(isPresented: $showNewPost) {
+    }
+    .sheet(isPresented: $showNewPost) {
       NewPostView(postHandler: self.postVM)
     }
   }
