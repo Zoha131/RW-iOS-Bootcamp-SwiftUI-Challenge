@@ -15,3 +15,16 @@ struct MediaPost: Identifiable {
   let timestamp: Date
   let uiImage: UIImage?
 }
+
+extension MediaPost {
+  
+  func getFormatedDate() -> String {
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.locale = Locale(identifier: "en_US")
+    dateFormatter.setLocalizedDateFormatFromTemplate("MMMd'T'HH:mm")
+    
+    return dateFormatter.string(from: timestamp)
+  }
+  
+}
