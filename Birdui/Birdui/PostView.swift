@@ -27,13 +27,38 @@ struct PostView: View {
       
       VStack(alignment: .leading) {
         
-        Text("\(post.userName)")
-          .fontWeight(.medium)
-          .padding(.top, 5)
         
-        Text("\(post.getFormatedDate())")
-          .font(.system(size: 12))
-          .padding(.bottom, 15)
+        
+        HStack {
+          VStack {
+            Text("\(post.userName)")
+              .fontWeight(.medium)
+              .padding(.top, 5)
+            
+            Text("\(post.getFormatedDate())")
+              .font(.system(size: 12))
+              .padding(.bottom, 15)
+          }
+          
+          VStack{
+            Image(systemName: "ellipsis")
+              .font(.system(size: 22))
+              .foregroundColor(.gray)
+              .onTapGesture {
+                self.showingActionSheet = true
+            }
+            
+            HStack{
+              Spacer()
+              if post.edited == true {
+                Text("edited")
+                  .fontWeight(.thin)
+                  .italic()
+              }
+            }
+            
+          }
+        }
         
         Text("\(post.textBody)")
           .font(.system(size: 16))
@@ -52,7 +77,7 @@ struct PostView: View {
               .background(Color.gray)
               .cornerRadius(10)
               .clipped()
-            }
+          }
           .buttonStyle(PlainButtonStyle())
         }
         
@@ -94,34 +119,28 @@ struct PostView: View {
       }
       
       Spacer()
-      //Edited comment
-      HStack{
-        Spacer()
-        if post.edited == true {
-          Text("edited")
-            .fontWeight(.thin)
-            .italic()
-        }
-      }
+      //      //Edited comment
+      //
+      Spacer()
     } //action sheet for Delete or Edit post
-         .actionSheet(isPresented: $showingActionSheet) {
-           ActionSheet(title: Text("Choose Option"), message: Text("Edit or Delete"), buttons: [
-             //Edit post
-             .default(Text("Edit Post"), action: {
-               self.showEditView = true
-             }),
-             //Delete post
-             .destructive(Text("Delete Post"), action: {
-               self.postHandler.removePost(post: self.post)
-             }),
-             .cancel()
-           ])
-           //End of action sheet
-       }
-       .sheet(isPresented: $showEditView) {
-         // TODO: Show ImagePicker
-         PostEditView(postHandler: self.postHandler, post: self.post, textBody: self.post.textBody ?? "")
-       }
+      .actionSheet(isPresented: $showingActionSheet) {
+        ActionSheet(title: Text("Choose Option"), message: Text("Edit or Delete"), buttons: [
+          //Edit post
+          .default(Text("Edit Post"), action: {
+            self.showEditView = true
+          }),
+          //Delete post
+          .destructive(Text("Delete Post"), action: {
+            self.postHandler.removePost(post: self.post)
+          }),
+          .cancel()
+        ])
+        //End of action sheet
+    }
+    .sheet(isPresented: $showEditView) {
+      // TODO: Show ImagePicker
+      PostEditView(postHandler: self.postHandler, post: self.post, textBody: self.post.textBody)
+    }
   }
 }
 
@@ -132,6 +151,6 @@ struct PostView_Previews: PreviewProvider {
       userName: "Audrey",
       timestamp: Date(timeIntervalSinceNow: -9876),
       uiImage: UIImage(named: "ray")),
-    postHandler: PostViewModel())
+             postHandler: PostViewModel())
   }
 }
