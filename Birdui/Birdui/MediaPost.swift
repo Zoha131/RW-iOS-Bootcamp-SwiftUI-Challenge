@@ -14,6 +14,7 @@ struct MediaPost: Identifiable {
   let userName: String
   let timestamp: Date
   let uiImage: UIImage?
+  var edited = false
 }
 
 extension MediaPost {

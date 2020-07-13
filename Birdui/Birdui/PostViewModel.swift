@@ -29,6 +29,7 @@ class PostViewModel: ObservableObject {
   func editPost(post: MediaPost, newText: String) {
     if let index = posts.firstIndex(where: {$0.id == post.id}) {
       posts[index].textBody = newText
+      posts[index].edited = true
     }
   }
     
