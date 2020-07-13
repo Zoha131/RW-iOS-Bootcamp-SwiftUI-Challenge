@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct PostView: View {
+  let postHandler : PostViewModel
   let post: MediaPost
   @State var showingActionSheet = false
   
@@ -50,7 +51,7 @@ struct PostView: View {
         }),
         .default(Text("Delete Post"), action: {
           print("Deleted post")
-          print("\(self.post.id)")
+          self.postHandler.removePost(post: self.post)
         }),
         .cancel()
       ])
@@ -61,8 +62,8 @@ struct PostView: View {
 
 struct PostView_Previews: PreviewProvider {
   static var previews: some View {
-    PostView(post: MediaPost(textBody: "Went to the Aquarium today :]",
+    PostView(postHandler: PostViewModel(), post: MediaPost(textBody: "Went to the Aquarium today :]",
                              userName: "Audrey", timestamp: Date(timeIntervalSinceNow: -9876),
-                             uiImage: UIImage(named: "octopus")))
+      uiImage: UIImage(named: "octopus")))
   }
 }

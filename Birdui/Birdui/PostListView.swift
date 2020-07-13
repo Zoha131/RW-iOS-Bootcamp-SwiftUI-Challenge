@@ -14,7 +14,6 @@ struct PostListView: View {
   
   @State var showNewPost = false
   
-  
   var body: some View {
     // TODO: This should look exactly like the Birdie table view,
     // but with only one button.
@@ -27,7 +26,7 @@ struct PostListView: View {
         // List View starts here
         List {
           ForEach(postVM.posts) { post in
-            PostView(post: post)
+            PostView(postHandler: self.postVM, post: post)
           }
         }
         .navigationBarTitle(Text("Home"), displayMode: .inline)

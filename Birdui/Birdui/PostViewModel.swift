@@ -19,7 +19,12 @@ class PostViewModel: ObservableObject {
         
         posts = [imagePost1, imagePost2, textPost1, textPost2].sorted(by: { $0.timestamp > $1.timestamp })
     }
-
+    
+  func removePost(post: MediaPost) {
+    if let index = posts.firstIndex(where: {$0.id == post.id}) {
+      posts.remove(at: index)
+    }    
+  }
     
     func addPost(post: MediaPost) {
         posts.append(post)
