@@ -29,10 +29,14 @@ struct PostListView: View {
         // List View starts here
         List {
           ForEach(postVM.posts) { post in
-            PostView(post: post, postHandler: self.postVM, onImageClick: { mediapost in
+<<<<<<< HEAD
+            PostView(post: post, postHandler: self.postVM){ mediapost in
               self.currentMediaPost = mediapost
               self.showImageViewer = true
-            })
+            }
+=======
+            PostView(postHandler: self.postVM, post: post)
+>>>>>>> 176c78790ed80c830b74059614a116196bf2c5e1
           }
         }
         .sheet(isPresented: $showImageViewer) {
