@@ -29,5 +29,17 @@ class PostViewModel: ObservableObject {
     posts = posts.sorted(by: { $0.timestamp > $1.timestamp })
   }
   
+  func updateReaction(post: MediaPost, reaction: ReactionType) {
+    
+    if let index = self.posts.firstIndex(of: post){
+      
+      let newPost = post.updateReaction(reactionType: reaction)
+      
+      posts.remove(at: index)
+      posts.insert(newPost, at: index)
+      
+    }
+  }
+  
   
 }

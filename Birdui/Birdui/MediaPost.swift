@@ -9,14 +9,36 @@
 import UIKit
 
 struct MediaPost: Identifiable {
-  let id = UUID()
-  let textBody: String?
+  let id: UUID
+  let textBody: String
   let userName: String
   let timestamp: Date
   let uiImage: UIImage?
+  var reaction: Reaction
+  
+  init(id: UUID = UUID(), textBody: String, userName: String, timestamp: Date, uiImage: UIImage? = nil, reaction: Reaction = Reaction()) {
+    self.id = id
+    self.textBody = textBody
+    self.userName = userName
+    self.timestamp = timestamp
+    self.uiImage = uiImage
+    self.reaction = reaction
+  }
+  
+  func updateReaction(reactionType: ReactionType) -> MediaPost{
+    return  MediaPost(
+      id: self.id,
+      textBody: self.textBody,
+      userName: self.userName,
+      timestamp: self.timestamp,
+      uiImage: self.uiImage,
+      reaction: self.reaction.updateReactionType(reactionType: reactionType)
+    )
+  }
+  
 }
 
-extension MediaPost {
+extension MediaPost: Equatable {
   
   func getFormatedDate() -> String {
     
@@ -27,4 +49,7 @@ extension MediaPost {
     return dateFormatter.string(from: timestamp)
   }
   
+  static func == (lhs: MediaPost, rhs: MediaPost) -> Bool {
+    return lhs.id == rhs.id
+  }
 }

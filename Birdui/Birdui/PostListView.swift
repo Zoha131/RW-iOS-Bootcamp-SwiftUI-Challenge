@@ -32,7 +32,7 @@ struct PostListView: View {
         // List View starts here
         List {
           ForEach(postVM.posts) { post in
-            PostView(post: post){ mediapost in
+            PostView(post: post, postHandler: self.postVM){ mediapost in
               self.currentMediaPost = mediapost
               self.showImageViewer = true
             }
