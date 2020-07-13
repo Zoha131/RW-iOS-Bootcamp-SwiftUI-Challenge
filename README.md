@@ -19,9 +19,10 @@
 - Create new post with or without image.
 - Add reaction (like, dislike, love) to any post
 - View the total count of the reactions
+- Dark mode supported
 
 ## Concept, we have learned by doing this project
-- Basic of SwiftUI
+- Basics of SwiftUI
 - Collaboration in GitHub
 - Pull Request in GitHub
 - Code review in GitHub
@@ -35,7 +36,7 @@
 - Facebook [Emilio](https://www.facebook.com/zoha131) || [Zoha](https://www.facebook.com/zoha131)
 
 <p>
-Don't forget to star ⭐ the repo it motivates me to share more open source
+Don't forget to star ⭐ the repo it motivates us to learn and share more open source work
 </p>
 
 ## License
