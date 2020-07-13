@@ -10,7 +10,7 @@ import UIKit
 
 struct MediaPost: Identifiable {
   let id = UUID()
-  let textBody: String?
+  var textBody: String?
   let userName: String
   let timestamp: Date
   let uiImage: UIImage?

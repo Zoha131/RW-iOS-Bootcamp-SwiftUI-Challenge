@@ -11,7 +11,10 @@ import SwiftUI
 struct PostView: View {
   let postHandler : PostViewModel
   let post: MediaPost
+  
+  @State var editedText = ""
   @State var showingActionSheet = false
+  @State var showEditView = false
   
   var body: some View {
 
@@ -49,7 +52,7 @@ struct PostView: View {
       ActionSheet(title: Text("Choose Option"), message: Text("Edit or Delete"), buttons: [
         //Edit post
         .default(Text("Edit Post"), action: {
-          print("edited post")
+          self.showEditView = true
         }),
         //Delete post
         .destructive(Text("Delete Post"), action: {
@@ -59,7 +62,10 @@ struct PostView: View {
       ])
       //End of action sheet
     }
-    
+    .sheet(isPresented: $showEditView) {
+      // TODO: Show ImagePicker
+      PostEditView(postHandler: self.postHandler, post: self.post, textBody: self.post.textBody ?? "")
+    }
   }
 }
 

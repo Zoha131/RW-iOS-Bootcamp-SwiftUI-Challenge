@@ -25,6 +25,12 @@ class PostViewModel: ObservableObject {
       posts.remove(at: index)
     }    
   }
+  
+  func editPost(post: MediaPost, newText: String) {
+    if let index = posts.firstIndex(where: {$0.id == post.id}) {
+      posts[index].textBody = newText
+    }
+  }
     
     func addPost(post: MediaPost) {
         posts.append(post)
