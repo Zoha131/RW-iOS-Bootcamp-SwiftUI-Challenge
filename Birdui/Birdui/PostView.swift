@@ -44,17 +44,20 @@ struct PostView: View {
           .frame(width: 150, height: 150, alignment: .center)
       }
     }
+      //action sheet for Delete or Edit post
     .actionSheet(isPresented: $showingActionSheet) {
       ActionSheet(title: Text("Choose Option"), message: Text("Edit or Delete"), buttons: [
+        //Edit post
         .default(Text("Edit Post"), action: {
           print("edited post")
         }),
-        .default(Text("Delete Post"), action: {
-          print("Deleted post")
+        //Delete post
+        .destructive(Text("Delete Post"), action: {
           self.postHandler.removePost(post: self.post)
         }),
         .cancel()
       ])
+      //End of action sheet
     }
     
   }
