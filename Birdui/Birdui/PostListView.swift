@@ -42,7 +42,7 @@ struct PostListView: View {
 //          action: { self.showNewPost = true },
 //          label: { Text("Add New Post") }
 //        ).padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 0))
-        AddButtonView()
+        AddButtonView(showNewPost: $showNewPost)
       }
     }
     .sheet(isPresented: $showNewPost) {

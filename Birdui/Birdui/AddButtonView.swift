@@ -10,6 +10,8 @@ import SwiftUI
 
 struct AddButtonView: View {
 
+  @Binding var showNewPost : Bool
+  
   var body: some View {
     
     VStack {
@@ -17,15 +19,15 @@ struct AddButtonView: View {
       HStack {
         Spacer()
         Button(action: {
-          
+          self.showNewPost = true
         }, label: {
           Text("+")
             .font(.system(.largeTitle))
-            .frame(width: 77, height: 70)
+            .frame(width: 65, height: 58)
             .foregroundColor(Color.white)
             .padding(.bottom, 7)
         })
-          .background(Color.orange)
+          .background(Color.orange.opacity(0.9))
           .cornerRadius(39.5)
           .padding(.trailing, 10)
           .padding(.bottom, 5)
@@ -44,6 +46,6 @@ struct AddButtonView: View {
 
 struct AddButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        AddButtonView()
+      AddButtonView(showNewPost: .constant(false))
     }
 }
