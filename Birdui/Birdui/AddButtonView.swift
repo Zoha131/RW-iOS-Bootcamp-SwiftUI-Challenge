@@ -8,16 +8,8 @@
 
 import SwiftUI
 
-struct Item {
-  let uuid = UUID()
-  let value: String
-}
-
-
-
 struct AddButtonView: View {
-  @State private var items = [Item]()
-  
+
   var body: some View {
     
     VStack {
