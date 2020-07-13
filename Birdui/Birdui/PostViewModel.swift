@@ -19,7 +19,7 @@ class PostViewModel: ObservableObject {
         
         posts = [imagePost1, imagePost2, textPost1, textPost2].sorted(by: { $0.timestamp > $1.timestamp })
     }
-    
+
     
     func addPost(post: MediaPost) {
         posts.append(post)

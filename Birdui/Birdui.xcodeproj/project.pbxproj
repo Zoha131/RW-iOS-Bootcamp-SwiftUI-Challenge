@@ -70,8 +70,8 @@
 			children = (
 				CD7798B824AF0799004D6A6B /* AppDelegate.swift */,
 				CD7798BA24AF0799004D6A6B /* SceneDelegate.swift */,
-				CD7798D924B04C01004D6A6B /* PostView.swift */,
 				CD7798D724B04BEC004D6A6B /* PostListView.swift */,
+				CD7798D924B04C01004D6A6B /* PostView.swift */,
 				85437B9224BBD305006EA0DF /* AddButtonView.swift */,
 				CD7798D524B040C9004D6A6B /* NewPostView.swift */,
 				CD7798DD24B05896004D6A6B /* ImagePicker.swift */,
