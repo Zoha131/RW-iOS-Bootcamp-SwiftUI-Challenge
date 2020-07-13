@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
 		89A5498D24BC2F0000AEE591 /* ImageViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A5498C24BC2F0000AEE591 /* ImageViewerView.swift */; };
 		89A5498F24BC5D1D00AEE591 /* ReactionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A5498E24BC5D1D00AEE591 /* ReactionButton.swift */; };
 		89A5499124BC61AA00AEE591 /* Reaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A5499024BC61AA00AEE591 /* Reaction.swift */; };
+=======
 		85437B9324BBD305006EA0DF /* AddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85437B9224BBD305006EA0DF /* AddButtonView.swift */; };
 		85437B9724BCCA00006EA0DF /* PostEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85437B9624BCCA00006EA0DF /* PostEditView.swift */; };
+>>>>>>> 176c78790ed80c830b74059614a116196bf2c5e1
 		CD7798B924AF0799004D6A6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7798B824AF0799004D6A6B /* AppDelegate.swift */; };
 		CD7798BB24AF0799004D6A6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7798BA24AF0799004D6A6B /* SceneDelegate.swift */; };
 		CD7798BF24AF079C004D6A6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD7798BE24AF079C004D6A6B /* Assets.xcassets */; };
@@ -26,13 +29,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+<<<<<<< HEAD
 		89A5498C24BC2F0000AEE591 /* ImageViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerView.swift; sourceTree = "<group>"; };
 		89A5498E24BC5D1D00AEE591 /* ReactionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionButton.swift; sourceTree = "<group>"; };
 		89A5499024BC61AA00AEE591 /* Reaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reaction.swift; sourceTree = "<group>"; };
 		CD7798B524AF0799004D6A6B /* BirdUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirdUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+=======
 		85437B9224BBD305006EA0DF /* AddButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonView.swift; sourceTree = "<group>"; };
 		85437B9624BCCA00006EA0DF /* PostEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEditView.swift; sourceTree = "<group>"; };
 		CD7798B524AF0799004D6A6B /* Birdui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birdui.app; sourceTree = BUILT_PRODUCTS_DIR; };
+>>>>>>> 176c78790ed80c830b74059614a116196bf2c5e1
 		CD7798B824AF0799004D6A6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD7798BA24AF0799004D6A6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CD7798BE24AF079C004D6A6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,10 +88,13 @@
 				85437B9224BBD305006EA0DF /* AddButtonView.swift */,
 				CD7798D724B04BEC004D6A6B /* PostListView.swift */,
 				CD7798D924B04C01004D6A6B /* PostView.swift */,
+<<<<<<< HEAD
 				89A5498C24BC2F0000AEE591 /* ImageViewerView.swift */,
 				89A5499024BC61AA00AEE591 /* Reaction.swift */,
 				89A5498E24BC5D1D00AEE591 /* ReactionButton.swift */,
+=======
 				85437B9624BCCA00006EA0DF /* PostEditView.swift */,
+>>>>>>> 176c78790ed80c830b74059614a116196bf2c5e1
 				CD7798D524B040C9004D6A6B /* NewPostView.swift */,
 				CD7798DD24B05896004D6A6B /* ImagePicker.swift */,
 				CD7798DB24B04C1A004D6A6B /* PostViewModel.swift */,
@@ -328,7 +337,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Birdui/Preview Content\"";
 				DEVELOPMENT_TEAM = 4UDSZ3HFA2;
-				DEVELOPMENT_TEAM = 35ERK77LXE;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Birdui/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
@@ -338,7 +346,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.Birdui;
 				PRODUCT_NAME = BirdUI;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -351,7 +358,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Birdui/Preview Content\"";
 				DEVELOPMENT_TEAM = 4UDSZ3HFA2;
-				DEVELOPMENT_TEAM = 35ERK77LXE;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Birdui/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
@@ -361,7 +367,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.Birdui;
 				PRODUCT_NAME = BirdUI;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

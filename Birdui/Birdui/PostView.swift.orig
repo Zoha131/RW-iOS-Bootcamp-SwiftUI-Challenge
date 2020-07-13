@@ -9,15 +9,15 @@
 import SwiftUI
 
 struct PostView: View {
+<<<<<<< HEAD
   let post: MediaPost
   var postHandler: PostViewModel
   var onImageClick: ((MediaPost) -> Void)?
   
-  @State var editedText = ""
-  @State var showingActionSheet = false
-  @State var showEditView = false
-  
   var body: some View {
+    // TODO: This should look exactly like Birdie's table view cell.
+    // The post text is left-aligned below the mascot image.
+    // The image, if any, is horizontally centered in the view.
     
     HStack(alignment: .top){
       
@@ -27,38 +27,13 @@ struct PostView: View {
       
       VStack(alignment: .leading) {
         
+        Text("\(post.userName)")
+          .fontWeight(.medium)
+          .padding(.top, 5)
         
-        
-        HStack {
-          VStack {
-            Text("\(post.userName)")
-              .fontWeight(.medium)
-              .padding(.top, 5)
-            
-            Text("\(post.getFormatedDate())")
-              .font(.system(size: 12))
-              .padding(.bottom, 15)
-          }
-          
-          VStack{
-            Image(systemName: "ellipsis")
-              .font(.system(size: 22))
-              .foregroundColor(.gray)
-              .onTapGesture {
-                self.showingActionSheet = true
-            }
-            
-            HStack{
-              Spacer()
-              if post.edited == true {
-                Text("edited")
-                  .fontWeight(.thin)
-                  .italic()
-              }
-            }
-            
-          }
-        }
+        Text("\(post.getFormatedDate())")
+          .font(.system(size: 12))
+          .padding(.bottom, 15)
         
         Text("\(post.textBody)")
           .font(.system(size: 16))
@@ -77,7 +52,7 @@ struct PostView: View {
               .background(Color.gray)
               .cornerRadius(10)
               .clipped()
-          }
+            }
           .buttonStyle(PlainButtonStyle())
         }
         
@@ -119,10 +94,57 @@ struct PostView: View {
       }
       
       Spacer()
-      //      //Edited comment
-      //
-      Spacer()
-    } //action sheet for Delete or Edit post
+    }
+=======
+  let postHandler : PostViewModel
+  let post: MediaPost
+  
+  @State var editedText = ""
+  @State var showingActionSheet = false
+  @State var showEditView = false
+  
+  var body: some View {
+    
+    VStack{
+      HStack {
+        Image("mascot_swift-badge")
+          .resizable()
+          .frame(width: 50, height: 50)
+        VStack(alignment: .leading) {
+          Text("\(post.userName)")
+          Text("\(post.getFormatedDate())")
+        }
+        Spacer()
+        Image(systemName: "ellipsis")
+          .font(.system(size: 22))
+          .foregroundColor(.gray)
+          .onTapGesture {
+            self.showingActionSheet = true
+        }
+      }
+      
+      HStack {
+        Text("\(post.textBody ?? "")")
+        Spacer()
+      }
+      if post.uiImage != nil {
+        Image(uiImage: post.uiImage!)
+          .resizable()
+          .aspectRatio(contentMode: .fit)
+          .frame(width: 150, height: 150, alignment: .center)
+      }
+      //Edited comment
+      HStack{
+        Spacer()
+        if post.edited == true {
+          Text("edited")
+            .fontWeight(.thin)
+            .italic()
+        }
+      }
+      
+    }
+      //action sheet for Delete or Edit post
       .actionSheet(isPresented: $showingActionSheet) {
         ActionSheet(title: Text("Choose Option"), message: Text("Edit or Delete"), buttons: [
           //Edit post
@@ -139,18 +161,25 @@ struct PostView: View {
     }
     .sheet(isPresented: $showEditView) {
       // TODO: Show ImagePicker
-      PostEditView(postHandler: self.postHandler, post: self.post, textBody: self.post.textBody)
+      PostEditView(postHandler: self.postHandler, post: self.post, textBody: self.post.textBody ?? "")
     }
+>>>>>>> 176c78790ed80c830b74059614a116196bf2c5e1
   }
 }
 
 struct PostView_Previews: PreviewProvider {
   static var previews: some View {
+<<<<<<< HEAD
     PostView(post: MediaPost(
       textBody: "Went to the Aquarium today :]",
       userName: "Audrey",
       timestamp: Date(timeIntervalSinceNow: -9876),
       uiImage: UIImage(named: "ray")),
-             postHandler: PostViewModel())
+    postHandler: PostViewModel())
+=======
+    PostView(postHandler: PostViewModel(), post: MediaPost(textBody: "Went to the Aquarium today :]",
+                                                           userName: "Audrey", timestamp: Date(timeIntervalSinceNow: -9876),
+                                                           uiImage: UIImage(named: "octopus")))
+>>>>>>> 176c78790ed80c830b74059614a116196bf2c5e1
   }
 }

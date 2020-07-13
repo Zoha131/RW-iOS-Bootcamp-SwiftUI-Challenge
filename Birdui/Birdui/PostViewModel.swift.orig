@@ -16,8 +16,23 @@ class PostViewModel: ObservableObject {
     let imagePost2 = MediaPost(textBody: "Went to the Aquarium today :]", userName: "Audrey", timestamp: Date(timeIntervalSinceNow: -9876), uiImage: UIImage(named:  "octopus"))
     let imagePost3 = MediaPost(textBody: "So suit up, and get ready to get Swifty ;]", userName: "Ray", timestamp: Date(timeIntervalSinceNow: -1476), uiImage: UIImage(named:  "ray"))
     
+<<<<<<< HEAD
     let textPost1 = MediaPost(textBody: "Hello World!", userName: "Bhagat", timestamp: Date(timeIntervalSinceNow: -67890), uiImage: nil)
     let textPost2 = MediaPost(textBody: "This is my favorite social media app! This is my favorite social media app! This is my favorite social media app!", userName: "Jeff", timestamp: Date(timeIntervalSinceNow: -2345), uiImage: nil)
+=======
+  func removePost(post: MediaPost) {
+    if let index = posts.firstIndex(where: {$0.id == post.id}) {
+      posts.remove(at: index)
+    }    
+  }
+  
+  func editPost(post: MediaPost, newText: String) {
+    if let index = posts.firstIndex(where: {$0.id == post.id}) {
+      posts[index].textBody = newText
+      posts[index].edited = true
+    }
+  }
+>>>>>>> 176c78790ed80c830b74059614a116196bf2c5e1
     
     
     posts = [imagePost1, imagePost2, imagePost3, textPost1, textPost2].sorted(by: { $0.timestamp > $1.timestamp })
@@ -40,17 +55,6 @@ class PostViewModel: ObservableObject {
       
     }
   }
-    
-  func removePost(post: MediaPost) {
-    if let index = posts.firstIndex(where: {$0.id == post.id}) {
-      posts.remove(at: index)
-    }    
-  }
   
-  func editPost(post: MediaPost, newText: String) {
-    if let index = posts.firstIndex(where: {$0.id == post.id}) {
-      posts[index].textBody = newText
-      posts[index].edited = true
-    }
-  }
+  
 }
