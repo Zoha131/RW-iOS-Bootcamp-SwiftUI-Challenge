@@ -1,78 +1,38 @@
 # Git Explorer
 
-
-<a href="https://www.linkedin.com/in/zoha131/">
-    <img src="https://img.shields.io/badge/Support-Recommed%2FEndorse%20me%20on%20Linkedin-yellow?style=for-the-badge&logo=linkedin" alt="Recommend Emilio on LinkedIn" /></a>
-
-<a href="https://www.linkedin.com/in/zoha131/">
-    <img src="https://img.shields.io/badge/Support-Recommed%2FEndorse%20me%20on%20Linkedin-yellow?style=for-the-badge&logo=linkedin" alt="Recommend Zoha on LinkedIn" /></a>
-
-
-**Git Explorer** is a simple iOS application to search git command on one click. Dedicated to all Software Developers with ❤️.
-
-
 ## About
-This app contains the most used git commands. You can find them pretty easily without banging on the Internet and Google.
+**BirdUI** is a simple social app. This app contains all the basic features of a social app.
 
 
 ## 📸 Screenshots
 
-<img src="./doc/app_profile.png" alt="Git Explorer iOS">
+<img src="./doc/app_profile.png" alt="BirdUI App">
+
+## Team Members:
+- Emilio
+- MD Abir Hasan Zoha
 
 
 ## App Features:
-- Search the git commands.
-- View the usage of the git command.
-- View the short description of that git command.
+- View Posts in a List
+- View post image in a dedicated page.
+- Create new post with or without image.
+- Add reaction (like, dislike, love) to any post
+- View the total count of the reactions
 
+## Concept, we have learned by doing this project
+- Basic of SwiftUI
+- Collaboration in GitHub
+- Pull Request in GitHub
+- Code review in GitHub
+- Working as a team
 
-## To Do List
-- [ ] Dark Mode
-- [ ] Online Doc Link
-- [ ] Scrolling in portrait
-- [ ] Only Usage and Note part scrolling in landscape
-- [ ] More git command
-- [ ] Testing
-
-## Concept, I have learned by doing this project
-- Auto Layout
-- Custom Compund UIView
-- UIPickerView
-- JSONSerialization
-- NSArray, NSDictionary
-- UITextField, .inputView, .inputAccessoryView
-
-
-## App Review:
-This app has been reviewed by [@marinbenc](https://twitter.com/marinbenc) and [@Adam9Rush](https://twitter.com/adam9rush). Click on the image to watch the review.
-
-[![Watch the video](./doc/review.png)](https://www.raywenderlich.com/10527046-review-my-stuff/lessons/8)
-
-## Inspiration
-
-This project is inspired from GitExplorer-Android ~ Thanks to him.
-
-  [GitExplorer-Android](https://github.com/Shashank02051997/GitExplorer-Android)
-
-## Speacial Thanks To
-- The Amighty Allah
-- [raywenderlich.com](https://www.raywenderlich.com/) for the amazing **RW Community Care!**
-- All the mentors of **RW Bootcamp**
-- All the fellow students of **RW Bootcamp**
-
-## Contributing
-
-Please fork this repository and contribute back using
-[pull requests](https://github.com/Zoha131/GitExplorer-iOS/pulls).
-
-Any contributions, large or small, major features, bug fixes, are welcomed and appreciated
-but will be thoroughly reviewed .
 
 ### Contact - Let's become friend
-- [Twitter](https://twitter.com/zoha131)
-- [Github](https://github.com/zoha131)
-- [Linkedin](https://www.linkedin.com/in/zoha131/)
-- [Facebook](https://www.facebook.com/zoha131)
+- Twitter [Emilio](https://twitter.com/zoha131) || [Zoha](https://twitter.com/zoha131)
+- Github [Emilio](https://github.com/zoha131) || [Zoha](https://github.com/zoha131)
+- Linkedin [Emilio](https://www.linkedin.com/in/zoha131/) || [Zoha](https://www.linkedin.com/in/zoha131/)
+- Facebook [Emilio](https://www.facebook.com/zoha131) || [Zoha](https://www.facebook.com/zoha131)
 
 <p>
 Don't forget to star ⭐ the repo it motivates me to share more open source
