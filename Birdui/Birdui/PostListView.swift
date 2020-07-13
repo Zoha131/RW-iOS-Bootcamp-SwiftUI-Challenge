@@ -13,6 +13,9 @@ struct PostListView: View {
   @ObservedObject var postVM = PostViewModel()
   
   @State var showNewPost = false
+  @State var showImageViewer = false
+  
+  @State var currentMediaPost: MediaPost!
   
   var body: some View {
     // TODO: This should look exactly like the Birdie table view,
@@ -29,12 +32,17 @@ struct PostListView: View {
         // List View starts here
         List {
           ForEach(postVM.posts) { post in
-            PostView(post: post)
+            PostView(post: post){ mediapost in
+              self.currentMediaPost = mediapost
+              self.showImageViewer = true
+            }
           }
         }
+        .sheet(isPresented: $showImageViewer) {
+          ImageViewerView(post: self.currentMediaPost)
+        }
         .navigationBarTitle(Text("Home"), displayMode: .inline)
-        .navigationBarItems(
-          leading: Image("mascot_swift-badge")
+        .navigationBarItems(leading: Image("mascot_swift-badge")
             .resizable()
             .frame(width: 50, height: 50)
         )

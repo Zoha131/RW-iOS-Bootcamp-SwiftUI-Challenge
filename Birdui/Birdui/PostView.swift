@@ -9,43 +9,51 @@
 import SwiftUI
 
 struct PostView: View {
-    let post: MediaPost
+  let post: MediaPost
+  var onImageClick: ((MediaPost) -> Void)?
+  
+  var body: some View {
+    // TODO: This should look exactly like Birdie's table view cell.
+    // The post text is left-aligned below the mascot image.
+    // The image, if any, is horizontally centered in the view.
     
-    var body: some View {
-        // TODO: This should look exactly like Birdie's table view cell.
-        // The post text is left-aligned below the mascot image.
-        // The image, if any, is horizontally centered in the view.
-        
-        VStack{
-            HStack {
-                Image("mascot_swift-badge")
-                    .resizable()
-                    .frame(width: 50, height: 50)
-                VStack(alignment: .leading) {
-                    Text("\(post.userName)")
-                    Text("\(post.getFormatedDate())")
-                }
-                Spacer()
-            }
-            HStack {
-                Text("\(post.textBody ?? "")")
-                Spacer()
-            }
-            if post.uiImage != nil {
-                Image(uiImage: post.uiImage!)
-                .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 150, height: 150, alignment: .center)
-            }
+    VStack{
+      HStack {
+        Image("mascot_swift-badge")
+          .resizable()
+          .frame(width: 50, height: 50)
+        VStack(alignment: .leading) {
+          Text("\(post.userName)")
+          Text("\(post.getFormatedDate())")
         }
-        
+        Spacer()
+      }
+      HStack {
+        Text("\(post.textBody ?? "")")
+        Spacer()
+      }
+      if post.uiImage != nil {
+        Button(action: {
+          if let imageClick = self.onImageClick {
+            imageClick(self.post)
+          }
+          
+        }) {
+          Image(uiImage: post.uiImage!)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 150, height: 150, alignment: .center)
+        }.buttonStyle(PlainButtonStyle())
+      }
     }
+    
+  }
 }
 
 struct PostView_Previews: PreviewProvider {
-    static var previews: some View {
-        PostView(post: MediaPost(textBody: "Went to the Aquarium today :]",
-                                 userName: "Audrey", timestamp: Date(timeIntervalSinceNow: -9876),
-                                 uiImage: UIImage(named: "octopus")))
-    }
+  static var previews: some View {
+    PostView(post: MediaPost(textBody: "Went to the Aquarium today :]",
+                             userName: "Audrey", timestamp: Date(timeIntervalSinceNow: -9876),
+                             uiImage: UIImage(named: "octopus")))
+  }
 }
