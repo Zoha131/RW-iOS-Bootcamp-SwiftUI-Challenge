@@ -62,7 +62,6 @@ struct PostView: View {
             reactionCount: self.post.reaction.likeCount,
             isReacted: self.post.reaction.userReactionType == ReactionType.like
           ) { reaction in
-              print("Like \(reaction)")
             self.postHandler.updateReaction(post: self.post, reaction: .like)
           }
           
@@ -73,8 +72,6 @@ struct PostView: View {
             reactionCount: self.post.reaction.dislikeCount,
             isReacted: self.post.reaction.userReactionType == ReactionType.dislike
           ) { reaction in
-              print("Dislike \(reaction)")
-            
             self.postHandler.updateReaction(post: self.post, reaction: .dislike)
           }
           
@@ -85,10 +82,14 @@ struct PostView: View {
             reactionCount: self.post.reaction.loveCount,
             isReacted: self.post.reaction.userReactionType == ReactionType.love
           ) { reaction in
-              print("Love \(reaction)")
             self.postHandler.updateReaction(post: self.post, reaction: .love)
           }
-        }.background(Color.white)
+          // Added this background to block Imageview to get
+          // the tapgesture call. Without this background the image view
+          // recieve the tap even if I tap inside the HStack
+          // Used system color so that it will work in both
+          // dark and light mode
+        }.background(Color(UIColor.systemBackground))
       }
       
       Spacer()

@@ -53,7 +53,12 @@ struct ReactionButton: View {
         .font(.system(size: 14))
         .fontWeight(.medium)
         .foregroundColor(color)
-    }
+        .frame(minWidth: 10, idealWidth: 12, maxWidth: 25)
+      
+    }.frame(minWidth: 30, idealWidth: 50, maxWidth: 60)
+    
+    // Given all the views a fixed height width so that
+    // one button or view does not others' layout
   }
 }
 
@@ -61,7 +66,7 @@ struct ReactionButton_Previews: PreviewProvider {
   static var previews: some View {
     ReactionButton(
       reactionType: .like,
-      reactionCount: 12,
+      reactionCount: 88,
       isReacted: false) { (reactionType) in }
   }
 }
