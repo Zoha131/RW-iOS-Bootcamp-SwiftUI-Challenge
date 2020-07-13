@@ -37,11 +37,6 @@ struct PostListView: View {
             .padding(.bottom,5)
         )
         
-        // Button to add new post
-//        Button(
-//          action: { self.showNewPost = true },
-//          label: { Text("Add New Post") }
-//        ).padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 0))
         AddButtonView(showNewPost: $showNewPost)
       }
     }
