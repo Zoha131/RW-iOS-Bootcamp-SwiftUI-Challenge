@@ -1,4 +1,4 @@
-# Git Explorer
+# BirdUI
 
 ## About
 **BirdUI** is a simple social app. This app contains all the basic features of a social app.
