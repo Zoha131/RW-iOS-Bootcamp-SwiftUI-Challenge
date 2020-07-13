@@ -17,43 +17,55 @@ struct PostView: View {
     // The post text is left-aligned below the mascot image.
     // The image, if any, is horizontally centered in the view.
     
-    VStack{
-      HStack {
-        Image("mascot_swift-badge")
-          .resizable()
-          .frame(width: 50, height: 50)
+    HStack(alignment: .top){
+      
+      Image("mascot_swift-badge")
+        .resizable()
+        .frame(width: 50, height: 50)
+      
         VStack(alignment: .leading) {
-          Text("\(post.userName)")
-          Text("\(post.getFormatedDate())")
-        }
-        Spacer()
-      }
-      HStack {
-        Text("\(post.textBody ?? "")")
-        Spacer()
-      }
-      if post.uiImage != nil {
-        Button(action: {
-          if let imageClick = self.onImageClick {
-            imageClick(self.post)
-          }
           
-        }) {
-          Image(uiImage: post.uiImage!)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 150, height: 150, alignment: .center)
-        }.buttonStyle(PlainButtonStyle())
-      }
+          Text("\(post.userName)")
+            .fontWeight(.medium)
+            .padding(.top, 5)
+          
+          Text("\(post.getFormatedDate())")
+            .font(.system(size: 12))
+            .padding(.bottom, 15)
+          
+          Text("\(post.textBody ?? "")")
+            .font(.system(size: 16))
+            .fontWeight(.light)
+          
+          if post.uiImage != nil {
+            Button(action: {
+              if let imageClick = self.onImageClick {
+                imageClick(self.post)
+              }
+            }) {
+              Image(uiImage: post.uiImage!)
+                .resizable()
+                .scaledToFill()
+                .frame(height: 150)
+                .background(Color.gray)
+                .cornerRadius(10)
+                .clipped()
+            }
+            .buttonStyle(PlainButtonStyle())
+          }
+        }
+
+      Spacer()
     }
-    
   }
 }
 
 struct PostView_Previews: PreviewProvider {
   static var previews: some View {
-    PostView(post: MediaPost(textBody: "Went to the Aquarium today :]",
-                             userName: "Audrey", timestamp: Date(timeIntervalSinceNow: -9876),
-                             uiImage: UIImage(named: "octopus")))
+    PostView(post: MediaPost(
+      textBody: "Went to the Aquarium today :]",
+      userName: "Audrey",
+      timestamp: Date(timeIntervalSinceNow: -9876),
+      uiImage: UIImage(named: "ray")))
   }
 }
