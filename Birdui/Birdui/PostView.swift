@@ -28,7 +28,7 @@ struct PostView: View {
       VStack(alignment: .leading) {
         
         
-        
+        //Top
         HStack {
           VStack {
             Text("\(post.userName)")
@@ -39,30 +39,32 @@ struct PostView: View {
               .font(.system(size: 12))
               .padding(.bottom, 15)
           }
+          Spacer()
           
-          VStack{
+          VStack {
             Image(systemName: "ellipsis")
-              .font(.system(size: 22))
+              .font(.system(size: 24))
               .foregroundColor(.gray)
               .onTapGesture {
                 self.showingActionSheet = true
             }
             
-            HStack{
-              Spacer()
-              if post.edited == true {
-                Text("edited")
-                  .fontWeight(.thin)
-                  .italic()
-              }
+            if post.edited == false {
+              Text("edited")
+                .font(.system(size: 14))
+                .fontWeight(.thin)
+                .italic()
             }
-            
           }
+          
         }
         
-        Text("\(post.textBody)")
-          .font(.system(size: 16))
-          .fontWeight(.light)
+        //Body
+        HStack{
+          Text("\(post.textBody)")
+            .font(.system(size: 16))
+            .fontWeight(.light)
+        }
         
         if post.uiImage != nil {
           Button(action: {
@@ -118,10 +120,7 @@ struct PostView: View {
         }.background(Color(UIColor.systemBackground))
       }
       
-      Spacer()
-      //      //Edited comment
-      //
-      Spacer()
+
     } //action sheet for Delete or Edit post
       .actionSheet(isPresented: $showingActionSheet) {
         ActionSheet(title: Text("Choose Option"), message: Text("Edit or Delete"), buttons: [
