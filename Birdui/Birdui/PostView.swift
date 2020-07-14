@@ -49,7 +49,7 @@ struct PostView: View {
                 self.showingActionSheet = true
             }
             
-            if post.edited == false {
+            if post.edited == true {
               Text("edited")
                 .font(.system(size: 14))
                 .fontWeight(.thin)
