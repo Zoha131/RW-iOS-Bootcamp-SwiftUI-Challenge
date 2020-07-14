@@ -29,8 +29,8 @@ struct PostView: View {
         
         
         //Top
-        HStack {
-          VStack {
+        HStack(alignment: .top) {
+          VStack(alignment:.leading) {
             Text("\(post.userName)")
               .fontWeight(.medium)
               .padding(.top, 5)
@@ -41,15 +41,16 @@ struct PostView: View {
           }
           Spacer()
           
-          VStack {
+          VStack(alignment: .trailing, spacing: 0) {
             Image(systemName: "ellipsis")
               .font(.system(size: 24))
               .foregroundColor(.gray)
+              .padding(.top, 5)
               .onTapGesture {
                 self.showingActionSheet = true
-            }
+              }
             
-            if post.edited == true {
+            if showEditView {
               Text("edited")
                 .font(.system(size: 14))
                 .fontWeight(.thin)
@@ -57,7 +58,7 @@ struct PostView: View {
             }
           }
           
-        }
+        }.background(Color(UIColor.systemBackground))
         
         //Body
         HStack{
