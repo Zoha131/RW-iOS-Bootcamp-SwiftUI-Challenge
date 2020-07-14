@@ -46,7 +46,7 @@ struct NewPostView: View {
           self.postHandler.addPost(post: MediaPost(textBody: self.postText, userName: self.username, timestamp: Date(), uiImage: self.uiImage))
           self.presentationMode.wrappedValue.dismiss()
         }
-        .disabled(username.isEmpty && postText.isEmpty)
+        .disabled(username.isEmpty || postText.isEmpty)
       }
       .padding()
     }
